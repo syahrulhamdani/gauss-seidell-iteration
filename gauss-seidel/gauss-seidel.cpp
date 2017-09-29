@@ -73,5 +73,5 @@ int main () {
   // Call function matrix_analysis
   matrix_analysis(n);
 
-  return 0
+  return 0;
 }
