@@ -59,5 +59,8 @@ int main () {
   cout << "Input the dimension of the matrix : ";
   cin >> n;
 
+  // Call function matrix_input
+  matrix_input(n);
+
   return 0
 }
