@@ -4,6 +4,7 @@
 #include <iostream>
 #include <fstream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -41,7 +42,7 @@ void matrix_analysis (int size) {
 
   for (i = 0; i < size; i++) {
     for (j = 0; j < size; j++) {
-      cout << my_matrix[i][j];
+      cout << right << setw(8) << my_matrix[i][j];
     }
     cout << endl;
   }
