@@ -11,6 +11,7 @@ float my_matrix[20][20];
 
 // Function Declaration
 void matrix_analysis (int size);
+void strict_diag_dominant ();
 
 void matrix_analysis (int size) {
 
@@ -34,6 +35,15 @@ void matrix_analysis (int size) {
   // Main Program
 
   // ---------------------- END OF MAIN PROGRAM ----------------------
+
+}
+
+void strict_diag_dominant () {
+
+  // Local Variable Declaration
+
+  // Main Program
+  
 
 }
 
