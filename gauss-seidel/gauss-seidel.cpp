@@ -6,6 +6,9 @@
 
 using namespace std;
 
+// Global Variable Declaration
+float my_matrix[20][20];
+
 // Function Declaration
 void matrix_analysis (size);
 
