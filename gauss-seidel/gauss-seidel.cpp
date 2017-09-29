@@ -51,8 +51,13 @@ void strict_diag_dominant (int size) {
 int main () {
 
   // Variable Declaration
+  int n;
 
   // Main Program
+  cout << "-------------- Gauss-Seidell Iterative Method --------------" <<endl;
+  cout << endl;
+  cout << "Input the dimension of the matrix : ";
+  cin >> n;
 
   return 0
 }
