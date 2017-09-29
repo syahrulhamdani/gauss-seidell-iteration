@@ -37,6 +37,13 @@ void matrix_analysis (int size) {
   }
   // ---------------------- END OF MATRIX INPUT PROCESS ----------------------
 
+  for (i = 0; i < size; i++) {
+    for (j = 0; j < size; j++) {
+      cout << my_matrix[i][j];
+    }
+    cout << endl;
+  }
+
   // Main Program
 
   // ---------------------- END OF MAIN PROGRAM ----------------------
@@ -63,8 +70,8 @@ int main () {
   cout << "Input the dimension of the matrix : ";
   cin >> n;
 
-  // Call function matrix_input
-  matrix_input(n);
+  // Call function matrix_analysis
+  matrix_analysis(n);
 
   return 0
 }
