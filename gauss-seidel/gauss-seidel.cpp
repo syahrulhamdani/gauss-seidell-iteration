@@ -42,9 +42,18 @@ void matrix_analysis (int size) {
 void strict_diag_dominant (int size) {
 
   // Local Variable Declaration
+  float new_matrix[20][20], sum_entries, aii;
+  int i, j;
 
   // Main Program
+  for (i = 0; i < size; i++) {
 
+    aii = abs(my_matrix[i][i]);
+    sum_entries = 0;
+    for (j = 0; j < size; j++) {
+      sum_entries += abs(my_matrix[i][j]);    // Sum of all entries in row 'i'
+    }
+  }
 
 }
 
