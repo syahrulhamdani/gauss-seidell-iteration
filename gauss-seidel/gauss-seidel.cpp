@@ -8,7 +8,7 @@
 using namespace std;
 
 // Global Variable Declaration
-float my_matrix[20][20];
+int my_matrix[20][20];
 
 // Function Declaration
 void matrix_analysis (int size);
