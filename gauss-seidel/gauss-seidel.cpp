@@ -6,6 +6,21 @@
 
 using namespace std;
 
+// Function Declaration
+void matrix_analysis (size);
+
+void matrix_analysis () {
+
+  // Local Variable Declaration
+
+  // ---------------------- END OF MATRIX INPUT PROCESS ----------------------
+
+  // Main Program
+
+  // ---------------------- END OF MAIN PROGRAM ----------------------
+
+}
+
 int main () {
 
   // Variable Declaration
