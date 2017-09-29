@@ -9,6 +9,7 @@ using namespace std;
 
 // Global Variable Declaration
 int my_matrix[20][20];
+int vector_b[20];
 
 // Function Declaration
 void matrix_analysis (int size);
