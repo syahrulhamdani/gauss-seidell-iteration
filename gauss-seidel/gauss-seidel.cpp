@@ -10,9 +10,9 @@ using namespace std;
 float my_matrix[20][20];
 
 // Function Declaration
-void matrix_analysis (size);
+void matrix_analysis (int size);
 
-void matrix_analysis () {
+void matrix_analysis (int size) {
 
   // Local Variable Declaration
   ifstream matrix;
