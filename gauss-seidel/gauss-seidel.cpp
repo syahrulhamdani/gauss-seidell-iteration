@@ -47,6 +47,11 @@ void matrix_analysis (int size) {
     cout << endl;
   }
 
+  // Display the vector b of equation 'Ax = b'
+  for (i = 0; i < size; i++) {
+    cout << right << setw(5) << vector_b[i] << endl;
+  }
+
   // Main Program
 
   // ---------------------- END OF MAIN PROGRAM ----------------------
