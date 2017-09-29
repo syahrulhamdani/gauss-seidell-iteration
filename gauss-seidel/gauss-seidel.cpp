@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <cmath>
 
 using namespace std;
 
@@ -43,7 +44,7 @@ void strict_diag_dominant () {
   // Local Variable Declaration
 
   // Main Program
-  
+
 
 }
 
