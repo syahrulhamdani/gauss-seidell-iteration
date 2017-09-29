@@ -29,8 +29,10 @@ void matrix_analysis (int size) {
 
   for (i = 0; i < size; i++) {
     for (j = 0; j < size+1; j++) {
-      matrix >> my_matrix[i][j];
-      if (j == size) {
+      if (j != size) {
+        matrix >> my_matrix[i][j];
+      }
+      else {
         matrix >> vector_b[i];
       }
     }
