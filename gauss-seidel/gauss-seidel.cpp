@@ -11,6 +11,7 @@ using namespace std;
 // Global Variable Declaration
 int my_matrix[20][20];
 int vector_b[20];
+double eqsys[1000][20];
 
 // Function Declaration
 void matrix_analysis (int size);
@@ -74,7 +75,30 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
   int i, j, k;
 
   // Main Program
+  k = 1;
 
+  // Assign eqsys array to be equals val_init (initial value)
+  for (i = 0; i < size; i++) {
+    eqsys[0][i] = val_init[i];
+  }
+  // Iteration process
+  while ( k <= max_iter) {
+
+    for (i = 0; i < size; i++) {
+      eqsys[k][i] = 0;    // Assign eqsys 'i' at iteration 'k' to zero
+      for (j = 0; j < size; j++) {
+        if (j < i) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k'
+          eqsys[k][i] += my_matrix[i][j] * eqsys[k][j];
+        } else if (j > 1) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k-1'
+          eqsys[k][i] += my_matrix[i][j] * eqsys[k-1][j];
+        }
+      }
+      eqsys[k][i] -= vector_b[i];    // subtract eqsys by vetcor_b
+      eqsys[k][i] *= (-1/my_matrix[i][i]);    // multiply eqsys by -(1/aii)
+    }
+
+    k++;
+  }
 
 }
 
