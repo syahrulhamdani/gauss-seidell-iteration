@@ -70,13 +70,23 @@ void strict_diag_dominant (int size) {
 int main () {
 
   // Variable Declaration
-  int n;
+  int n, i, iter;
+  float tol, x_init[20];
 
   // Main Program
   cout << "-------------- Gauss-Seidell Iterative Method --------------" <<endl;
   cout << endl;
   cout << "Input the dimension of the matrix : ";
   cin >> n;
+  cout << "Input maximum iteration : ";
+  cin >> iter;
+  cout << "Input maximum tolerance of error : ";
+  cin >> tol;
+  cout << "Input the initial value of x :" << endl;
+  for (i = 0; i < n; i++) {
+    cout << "# value of x[" << i+1 << "] : ";
+    cin >> x_init[i];
+  }
 
   // Call function matrix_analysis
   matrix_analysis(n);
