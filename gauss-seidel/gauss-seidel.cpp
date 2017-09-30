@@ -41,6 +41,7 @@ void matrix_analysis (int size) {
   }
   // ---------------------- END OF MATRIX INPUT PROCESS ----------------------
 
+  cout << endl << "# Matrix A : " << endl;
   for (i = 0; i < size; i++) {
     for (j = 0; j < size; j++) {
       cout << right << setw(8) << my_matrix[i][j];
@@ -49,6 +50,7 @@ void matrix_analysis (int size) {
   }
 
   // Display the vector b of equation 'Ax = b'
+  cout << endl << "# Vector b : " << endl;
   for (i = 0; i < size; i++) {
     cout << right << setw(5) << vector_b[i] << endl;
   }
@@ -74,7 +76,7 @@ void gauss_seidell (int max_iter, int err, float val_init[]) {
   int i, j, k;
 
   // Main Program
-  
+
 
 }
 
