@@ -15,7 +15,7 @@ int vector_b[20];
 // Function Declaration
 void matrix_analysis (int size);
 void strict_diag_dominant (int size);
-void gauss_seidell (int max_iter, int err, float val_init[]);
+void gauss_seidell (int max_iter, int size, int err, float val_init[]);
 
 void matrix_analysis (int size) {
 
@@ -71,7 +71,7 @@ void strict_diag_dominant (int size) {
 
 }
 
-void gauss_seidell (int max_iter, int err, float val_init[]) {
+void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
 
   // Local Variable Declaration
   int i, j, k;
@@ -106,7 +106,7 @@ int main () {
   matrix_analysis(n);
 
   // Call function gauss_seidell
-  gauss_seidell(iter, tol, x_init);
+  gauss_seidell(iter, n, tol, x_init);
 
   return 0;
 }
