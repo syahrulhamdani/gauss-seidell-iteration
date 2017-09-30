@@ -41,6 +41,7 @@ void matrix_analysis (int size) {
   }
   // ---------------------- END OF MATRIX INPUT PROCESS ----------------------
 
+  // Display the matrix A of equation 'Ax = b'
   cout << endl << "# Matrix A : " << endl;
   for (i = 0; i < size; i++) {
     for (j = 0; j < size; j++) {
