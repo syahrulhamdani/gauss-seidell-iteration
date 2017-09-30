@@ -11,11 +11,13 @@ using namespace std;
 // Global Variable Declaration
 int my_matrix[20][20];
 int vector_b[20];
+double eqsys[1000][20];
 
 // Function Declaration
 void matrix_analysis (int size);
 void strict_diag_dominant (int size);
 void gauss_seidell (int max_iter, int size, int err, float val_init[]);
+double norm_infinity (double val[], int size);
 
 void matrix_analysis (int size) {
 
@@ -71,13 +73,69 @@ void strict_diag_dominant (int size) {
 
 }
 
+double norm_infinity (double val[], int size) {
+
+  // Local Variable Declaration
+  int i, index;
+  double max_val;
+
+  // Main Program
+  max_val = val[0];
+  index = 0;
+  for (i = 0; i < size; i++) {
+    if ((val[i] > max_val) and (index != i)) {
+      max_val = val[i];
+      index = i;
+      i = 0;
+    }
+  }
+
+  return max_val;
+
+}
+
 void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
 
   // Local Variable Declaration
   int i, j, k;
+  double differ[20], denom[20], num, den, tol;
 
   // Main Program
+  k = 1;
+  tol = 0;    // Assign initial tolerance to zero
 
+  // Assign eqsys array to be equals val_init (initial value)
+  for (i = 0; i < size; i++) {
+    eqsys[0][i] = val_init[i];
+  }
+  // Iteration process
+  while ( (k <= max_iter) or (tol > err)) {
+
+    for (i = 0; i < size; i++) {
+      eqsys[k][i] = 0;    // Assign eqsys 'i' at iteration 'k' to zero
+      for (j = 0; j < size; j++) {
+        if (j < i) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k'
+          eqsys[k][i] += my_matrix[i][j] * eqsys[k][j];
+        } else if (j > 1) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k-1'
+          eqsys[k][i] += my_matrix[i][j] * eqsys[k-1][j];
+        }
+      }
+      eqsys[k][i] -= vector_b[i];    // subtract eqsys by vetcor_b
+      eqsys[k][i] *= (-1/my_matrix[i][i]);    // multiply eqsys by -(1/aii)
+    }
+
+    k++;
+    // Determine deviation for each entry in eqsys between current and previous iteration
+    for (i = 0; i < size; i++) {
+      differ[i] = eqsys[k][i] - eqsys[k-1][i];
+      denom[i] = eqsys[k][i];
+    }
+    // Call function norm_infinity to determine norm of numerator and denominator
+    num = norm_infinity(differ, size);
+    den = norm_infinity(denom, size);
+    // Calculate the current tolerance
+    tol = num/den;
+  }
 
 }
 
