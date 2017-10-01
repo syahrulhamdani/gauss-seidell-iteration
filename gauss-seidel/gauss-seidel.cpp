@@ -9,8 +9,8 @@
 using namespace std;
 
 // Global Variable Declaration
-int my_matrix[20][20];
-int vector_b[20];
+double my_matrix[20][20];
+double vector_b[20];
 double eqsys[1000][20];
 
 // Function Declaration
@@ -138,7 +138,7 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
       for (j = 0; j < size; j++) {
         if (j < i) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k'
           eqsys[k][i] += my_matrix[i][j] * eqsys[k][j];
-        } else if (j > 1) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k-1'
+        } else if (j > i) {    // xi = xi + sum(aij*xj), value of xj at iteration 'k-1'
           eqsys[k][i] += my_matrix[i][j] * eqsys[k-1][j];
         }
       }
@@ -146,17 +146,19 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
       eqsys[k][i] *= (-1/my_matrix[i][i]);    // multiply eqsys by -(1/aii)
     }
 
-    k++;
     // Determine deviation for each entry in eqsys between current and previous iteration
     for (i = 0; i < size; i++) {
       differ[i] = eqsys[k][i] - eqsys[k-1][i];
       denom[i] = eqsys[k][i];
     }
+
     // Call function norm_infinity to determine norm of numerator and denominator
     num = norm_infinity(differ, size);
     den = norm_infinity(denom, size);
     // Calculate the current tolerance
     tol = num/den;
+
+    k++;
   }
 
 }
