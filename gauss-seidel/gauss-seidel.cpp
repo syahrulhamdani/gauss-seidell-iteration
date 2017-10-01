@@ -80,11 +80,11 @@ double norm_infinity (double val[], int size) {
   double max_val;
 
   // Main Program
-  max_val = val[0];
+  max_val = abs(val[0]);
   index = 0;
   for (i = 0; i < size; i++) {
-    if ((val[i] > max_val) and (index != i)) {
-      max_val = val[i];
+    if ((abs(val[i]) > max_val) and (index != i)) {
+      max_val = abs(val[i]);
       index = i;
       i = 0;
     }
