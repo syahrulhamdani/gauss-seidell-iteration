@@ -87,11 +87,12 @@ void strict_diag_dominant (int size) {
   }
   // Check whether all rows is fulfill sdd
   if (is_sdd == size) {
-    cout << "Your matrix is strict diagonally dominant matrix and convergent";
+    cout << endl << "Your matrix is strict diagonally dominant matrix and convergent";
   } else {
-    cout << "Warning! your matrix isn't strict diagonally dominant matrix";
+    cout << endl << "Warning! your matrix isn't strict diagonally dominant matrix";
     cout << "and there's no guarantee to be convergent";
   }
+  cout << endl;
 
 }
 
@@ -166,13 +167,13 @@ void gauss_seidell (int max_iter, int size, double err, double val_init[]) {
   }
 
   // Display the eqsys array
-  cout << endl;
+  cout << endl << "Table of solution for each iteration :" << endl;
   for (k = 0; k < max_iter; k++) {
     cout << right << setw(8) << k << setw(5) << "|";
     for (i = 0; i < size; i++) {
       cout << right << setw(10) << eqsys[k][i];
     }
-    cout << right << setw(5) << "|" << setw(8) << tol[k];
+    cout << right << setw(5) << "|" << setw(10) << tol[k];
     cout << endl;
   }
 }
