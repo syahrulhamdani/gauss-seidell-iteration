@@ -87,10 +87,10 @@ void strict_diag_dominant (int size) {
   }
   // Check whether all rows is fulfill sdd
   if (is_sdd == size) {
-    cout << endl << "Your matrix is strict diagonally dominant matrix and convergent";
+    cout << endl << "- Your matrix is strict diagonally dominant matrix and convergent -";
   } else {
-    cout << endl << "Warning! your matrix isn't strict diagonally dominant matrix";
-    cout << "and there's no guarantee to be convergent";
+    cout << endl << "- Warning! your matrix isn't strict diagonally dominant matrix";
+    cout << "and there's no guarantee to be convergent -";
   }
   cout << endl;
 
