@@ -161,6 +161,15 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
     k++;
   }
 
+  // Display the eqsys array
+  cout << endl;
+  for (k = 0; k < max_iter; k++) {
+    cout << right << setw(8) << k << setw(5) << "|";
+    for (i = 0; i < size; i++) {
+      cout << right << setw(10) << eqsys[k][i];
+    }
+    cout << endl;
+  }
 }
 
 int main () {
