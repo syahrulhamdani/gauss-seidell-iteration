@@ -58,9 +58,8 @@ void matrix_analysis (int size) {
     cout << right << setw(5) << vector_b[i] << endl;
   }
 
-  // Main Program
-
-  // ---------------------- END OF MAIN PROGRAM ----------------------
+  // Call strict_diag_dominant function
+  strict_diag_dominant(size);
 
 }
 
