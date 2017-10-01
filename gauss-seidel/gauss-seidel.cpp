@@ -79,7 +79,7 @@ void strict_diag_dominant (int size) {
       sum_entries += abs(my_matrix[i][j]);    // Sum of all entries in row 'i'
     }
     // Check if 2*|aii| > sum of all entry in row 'i', then the row fulfill sdd
-    if (aii > sum_entries) {
+    if (2*aii > sum_entries) {
       is_sdd += 1;
     } else {
       is_sdd += 0;
