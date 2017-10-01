@@ -67,9 +67,32 @@ void matrix_analysis (int size) {
 void strict_diag_dominant (int size) {
 
   // Local Variable Declaration
+  int new_matrix[20][20], sum_entries, aii;
+  int i, j, is_sdd;
 
   // Main Program
+  is_sdd = 0;
+  for (i = 0; i < size; i++) {
 
+    aii = abs(my_matrix[i][i]);
+    sum_entries = 0;
+    for (j = 0; j < size; j++) {
+      sum_entries += abs(my_matrix[i][j]);    // Sum of all entries in row 'i'
+    }
+    // Check if 2*|aii| > sum of all entry in row 'i', then the row fulfill sdd
+    if (aii > sum_entries) {
+      is_sdd += 1;
+    } else {
+      is_sdd += 0;
+    }
+  }
+  // Check whether all rows is fulfill sdd
+  if (is_sdd == size) {
+    cout << "Your matrix is strict diagonally dominant matrix and convergent";
+  } else {
+    cout << "Warning! your matrix isn't strict diagonally dominant matrix";
+    cout << "and there's no guarantee to be convergent";
+  }
 
 }
 
