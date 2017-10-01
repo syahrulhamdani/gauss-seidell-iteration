@@ -102,7 +102,7 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
 
   // Main Program
   k = 1;
-  tol = 0;    // Assign initial tolerance to zero
+  tol = 1;    // Assign initial tolerance to zero
 
   // Assign eqsys array to be equals val_init (initial value)
   for (i = 0; i < size; i++) {
