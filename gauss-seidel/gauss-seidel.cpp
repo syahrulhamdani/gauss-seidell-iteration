@@ -16,7 +16,7 @@ double eqsys[1000][20];
 // Function Declaration
 void matrix_analysis (int size);
 void strict_diag_dominant (int size);
-void gauss_seidell (int max_iter, int size, int err, float val_init[]);
+void gauss_seidell (int max_iter, int size, double err, double val_init[]);
 double norm_infinity (double val[], int size);
 
 void matrix_analysis (int size) {
@@ -116,22 +116,22 @@ double norm_infinity (double val[], int size) {
 
 }
 
-void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
+void gauss_seidell (int max_iter, int size, double err, double val_init[]) {
 
   // Local Variable Declaration
   int i, j, k;
-  double differ[20], denom[20], num, den, tol;
+  double differ[20], denom[20], num, den, tol[1000];
 
   // Main Program
   k = 1;
-  tol = 1;    // Assign initial tolerance to zero
+  tol[0] = 1;    // Assign initial tolerance to zero
 
   // Assign eqsys array to be equals val_init (initial value)
   for (i = 0; i < size; i++) {
     eqsys[0][i] = val_init[i];
   }
   // Iteration process
-  while ( (k <= max_iter) or (tol > err)) {
+  while ( k < max_iter ) {
 
     for (i = 0; i < size; i++) {
       eqsys[k][i] = 0;    // Assign eqsys 'i' at iteration 'k' to zero
@@ -156,9 +156,13 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
     num = norm_infinity(differ, size);
     den = norm_infinity(denom, size);
     // Calculate the current tolerance
-    tol = num/den;
+    tol[k] = num/den;
 
     k++;
+    if (tol[k-1] < err) {
+      max_iter = k;
+      break;
+    }
   }
 
   // Display the eqsys array
@@ -168,6 +172,7 @@ void gauss_seidell (int max_iter, int size, int err, float val_init[]) {
     for (i = 0; i < size; i++) {
       cout << right << setw(10) << eqsys[k][i];
     }
+    cout << right << setw(5) << "|" << setw(8) << tol[k];
     cout << endl;
   }
 }
@@ -176,7 +181,7 @@ int main () {
 
   // Variable Declaration
   int n, i, iter;
-  float tol, x_init[20];
+  double tol, x_init[20];
 
   // Main Program
   cout << "-------------- Gauss-Seidell Iterative Method --------------" <<endl;
