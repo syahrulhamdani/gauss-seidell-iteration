@@ -8,7 +8,7 @@
 using namespace std;
 
 // Global Variable Declaration
-float my_matrix[20][20];
+int my_matrix[20][20];
 
 // Function Declaration
 void matrix_analysis (int size);
@@ -42,7 +42,7 @@ void matrix_analysis (int size) {
 void strict_diag_dominant (int size) {
 
   // Local Variable Declaration
-  float new_matrix[20][20], sum_entries, aii;
+  int new_matrix[20][20], sum_entries, aii;
   int i, j, is_sdd;
 
   // Main Program
